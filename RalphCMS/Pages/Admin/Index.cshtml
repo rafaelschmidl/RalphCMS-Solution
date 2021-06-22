@@ -1,0 +1,47 @@
+﻿@page
+@model RalphCMS.Pages.Admin.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Page[0].Index)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Page[0].Content)
+            </th>
+            <th>
+                Menu
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Page) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Index)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Title">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Title">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Title">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
