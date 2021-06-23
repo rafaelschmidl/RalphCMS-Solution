@@ -9,9 +9,13 @@
 </head>
 <body>
     <header>
-        @await Component.InvokeAsync("NavMenu") 
-
+        @await Component.InvokeAsync("NavMenu")
     </header>
+
+    <div class="container">
+        <partial name="_CookiesConsentPartial" />
+    </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

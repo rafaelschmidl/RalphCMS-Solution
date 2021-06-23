@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RalphCMS", "RalphCMS\RalphCMS.csproj", "{B3C2F6FF-503F-441F-80C5-CB29DE31D2F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RalphAPI", "RalphAPI\RalphAPI.csproj", "{D44B9E14-FF7A-443E-83D0-E8DCBD974216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B3C2F6FF-503F-441F-80C5-CB29DE31D2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3C2F6FF-503F-441F-80C5-CB29DE31D2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3C2F6FF-503F-441F-80C5-CB29DE31D2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D44B9E14-FF7A-443E-83D0-E8DCBD974216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D44B9E14-FF7A-443E-83D0-E8DCBD974216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D44B9E14-FF7A-443E-83D0-E8DCBD974216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D44B9E14-FF7A-443E-83D0-E8DCBD974216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
