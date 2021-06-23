@@ -10,16 +10,18 @@ namespace RalphCMS.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly RalphCMS.Data.ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(RalphCMS.Data.ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
+
+        public new Models.Page Page { get; set; }
 
         public void OnGet()
         {
-
+            Page = _context.Pages.FirstOrDefault(p => p.Title == "Index");
         }
     }
 }

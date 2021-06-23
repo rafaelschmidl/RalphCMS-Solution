@@ -2,4 +2,14 @@
 @model RalphCMS.Pages.AboutModel
 @{
 }
-<h1>About</h1>
+
+<div class="container-fluid">
+    @if (Model.Page != null)
+    {
+        @Html.Raw(Model.Page.Content)
+    }
+</div>
+
+@section Scripts {
+    <link href="~/css/wordWrap.css" rel="stylesheet" />
+}

@@ -7,21 +7,17 @@
 
 <h1>Edit</h1>
 
-<h4>Page</h4>
+<h4>@Model.Page.Title</h4>
+
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="container-fluid">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Page.Title" />
             <div class="form-group">
-                <label asp-for="Page.Index" class="control-label"></label>
-                <input asp-for="Page.Index" class="form-control" />
-                <span asp-validation-for="Page.Index" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Page.Content" class="control-label"></label>
-                <input asp-for="Page.Content" class="form-control" />
+                <textarea asp-for="Page.Content" class="form-control" id="summernote"></textarea>
                 <span asp-validation-for="Page.Content" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,4 +33,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_WYSIWYGScriptsPartial");}
 }

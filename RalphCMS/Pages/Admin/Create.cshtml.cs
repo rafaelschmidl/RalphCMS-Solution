@@ -27,7 +27,7 @@ namespace RalphCMS.Pages.Admin
         public new Models.Page Page { get; set; }
 
         public List<string> PageTitles { get; set; }
-        private readonly List<string> pageTitles = new List<string>() { "About", "Contact", "Road Map" };
+        private readonly List<string> pageTitles = new List<string>() { "Index", "About", "Contact", "Roadmap" };
 
         public IActionResult OnGet()
         {

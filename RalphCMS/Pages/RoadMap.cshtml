@@ -3,5 +3,13 @@
 @{
 }
 
+<div class="container-fluid">
+    @if (Model.Page != null)
+    {
+        @Html.Raw(Model.Page.Content)
+    }
+</div>
 
-<h1>roadmap</h1>
+@section Scripts {
+    <link href="~/css/wordWrap.css" rel="stylesheet" />
+}
