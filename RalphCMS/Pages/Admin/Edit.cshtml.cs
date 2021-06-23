@@ -22,7 +22,7 @@ namespace RalphCMS.Pages.Admin
             _context = context;
         }
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public new Models.Page Page { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
@@ -43,11 +43,18 @@ namespace RalphCMS.Pages.Admin
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+
+            Page = await _context.Pages.FirstOrDefaultAsync(m => m.Title == id);
+
+            if (Page == null)
+            {
+                return NotFound();
             }
 
             _context.Attach(Page).State = EntityState.Modified;
