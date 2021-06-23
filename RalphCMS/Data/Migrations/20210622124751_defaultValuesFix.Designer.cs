@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RalphCMS.Data;
 
 namespace RalphCMS.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210622124751_defaultValuesFix")]
+    partial class defaultValuesFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,14 +226,14 @@ namespace RalphCMS.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("AddToNavMenu")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Index")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsInNavMenu")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Visits")
                         .HasColumnType("int");

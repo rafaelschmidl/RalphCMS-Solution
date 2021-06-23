@@ -23,7 +23,7 @@ namespace RalphCMS.Pages.Admin
         }
 
         [BindProperty]
-        public Models.Page Page { get; set; }
+        public new Models.Page Page { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {

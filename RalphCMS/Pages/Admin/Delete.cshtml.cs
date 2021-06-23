@@ -22,7 +22,7 @@ namespace RalphCMS.Pages.Admin
         }
 
         [BindProperty]
-        public Models.Page Page { get; set; }
+        public new Models.Page Page { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -51,6 +51,9 @@ namespace RalphCMS.Pages.Admin
 
             if (Page != null)
             {
+                var q = _context.Pages.Where(p => p.Index > Page.Index).ToList();
+                q.ForEach(p => p.Index--);
+
                 _context.Pages.Remove(Page);
                 await _context.SaveChangesAsync();
             }

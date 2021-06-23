@@ -21,7 +21,7 @@ namespace RalphCMS.Pages.Admin
             _context = context;
         }
 
-        public IList<Models.Page> Page { get;set; }
+        public new IList<Models.Page> Page { get;set; }
 
         public async Task OnGetAsync()
         {
