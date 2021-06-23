@@ -22,7 +22,7 @@ namespace RalphCMS.Pages.Admin
             _context = context;
         }
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public new Models.Page Page { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
@@ -48,13 +48,6 @@ namespace RalphCMS.Pages.Admin
             if (!ModelState.IsValid)
             {
                 return Page();
-            }
-
-            Page = await _context.Pages.FirstOrDefaultAsync(m => m.Title == id);
-
-            if (Page == null)
-            {
-                return NotFound();
             }
 
             _context.Attach(Page).State = EntityState.Modified;

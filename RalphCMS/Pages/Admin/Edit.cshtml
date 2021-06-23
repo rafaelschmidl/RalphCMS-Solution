@@ -16,6 +16,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Page.Title" />
             <div class="form-group">
+                <input type="hidden" asp-for="Page.Index" value="@Model.Page.Index" />
+                <input type="hidden" asp-for="Page.Visits" value="@Model.Page.Visits" />
                 <label asp-for="Page.Content" class="control-label"></label>
                 <textarea asp-for="Page.Content" class="form-control" id="summernote"></textarea>
                 <span asp-validation-for="Page.Content" class="text-danger"></span>
