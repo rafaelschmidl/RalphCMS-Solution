@@ -19,6 +19,12 @@
             <th>
                 Menu
             </th>
+            <th>
+                Actions
+            </th>
+            <th>
+                Visitors
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +45,9 @@
                 </form> |
                 <a asp-page="./Edit" asp-route-id="@item.Title">Edit</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Title">Delete</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visits)
             </td>
         </tr>
 }

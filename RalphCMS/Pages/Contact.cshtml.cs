@@ -22,7 +22,9 @@ namespace RalphCMS.Pages
         public void OnGet()
         {
             Page = _context.Pages.FirstOrDefault(p => p.Title == "Contact");
+            Page.Visits++;
 
+            _context.SaveChanges();
         }
     }
 }

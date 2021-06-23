@@ -21,6 +21,9 @@ namespace RalphCMS.Pages
         public void OnGet()
         {
             Page = _context.Pages.FirstOrDefault(p => p.Title == "About");
+            Page.Visits++;
+
+            _context.SaveChanges();
         }
     }
 }
