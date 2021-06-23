@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.Page[0].Title)
             </th>
             <th>
-                In Menu
+                Menu
             </th>
         </tr>
     </thead>
@@ -28,10 +28,15 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.CheckBoxFor(modelItem => item.IsInNavMenu)
-
+                <form method="post" class="btn-group-sm d-sm-inline-block p-0 m-0">
+                    <button type="submit" asp-page-handler="ToggleIsInNavMenu" asp-route-index="@item.Index" class="btn-info btn-block py-0">@(item.IsInNavMenu ? "Remove" : "Add")</button>
+                </form>
             </td>
             <td>
+                <form method="post" class="btn-group-sm d-sm-inline-block p-0 m-0">
+                    <button type="submit" asp-page-handler="PageSectionUpButton" asp-route-index="@item.Index" class="btn btn-block py-0">▲</button>
+                    <button type="submit" asp-page-handler="PageSectionDownButton" asp-route-index="@item.Index" class="btn btn-block py-0 m-0">▼</button>
+                </form> |
                 <a asp-page="./Edit" asp-route-id="@item.Title">Edit</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Title">Delete</a>
             </td>

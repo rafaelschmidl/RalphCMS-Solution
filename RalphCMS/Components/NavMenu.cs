@@ -17,9 +17,9 @@ namespace RalphCMS.Components
 
         public IViewComponentResult Invoke()
         {
-            var navMenuItems = _context.Pages.OrderBy(p => p.Index).Select(p => p.Title).ToList();
+            var pages = _context.Pages.OrderBy(p => p.Index).ToList();
 
-            return View(navMenuItems);
+            return View(pages);
         }
     }
 }

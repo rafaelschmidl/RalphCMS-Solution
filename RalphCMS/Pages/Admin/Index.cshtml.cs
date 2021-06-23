@@ -21,11 +21,57 @@ namespace RalphCMS.Pages.Admin
             _context = context;
         }
 
+        [BindProperty(SupportsGet = true)]
         public new IList<Models.Page> Page { get;set; }
 
         public async Task OnGetAsync()
         {
             Page = await _context.Pages.OrderBy(p => p.Index).ToListAsync();
+        }
+
+        public IActionResult OnPostToggleIsInNavMenu(int index)
+        {
+            var q = _context.Pages.FirstOrDefault(p => p.Index == index);
+            q.IsInNavMenu = !q.IsInNavMenu;
+
+            _context.SaveChanges();
+
+            return RedirectToPage();
+        }
+
+        public IActionResult OnPostPageSectionUpButton(int index)
+        {
+            if (!ModelState.IsValid)
+                return Page();
+
+            SwapPageSectionsIndex(index, index -= 1);
+
+            return RedirectToPage();
+        }
+
+        public IActionResult OnPostPageSectionDownButton(int index)
+        {
+            if (!ModelState.IsValid)
+                return Page();
+
+            SwapPageSectionsIndex(index, index += 1);
+
+            return RedirectToPage();
+        }
+
+        private void SwapPageSectionsIndex(int index_1, int index_2)
+        {
+            var ps_1 = _context.Pages.FirstOrDefault(ps => ps.Index == index_1);
+            var ps_2 = _context.Pages.FirstOrDefault(ps => ps.Index == index_2);
+
+            if (ps_1 != null && ps_2 != null)
+            {
+                int temp = ps_1.Index;
+                ps_1.Index = ps_2.Index;
+                ps_2.Index = temp;
+
+                _context.SaveChanges();
+            }
         }
     }
 }

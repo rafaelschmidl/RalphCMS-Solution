@@ -8,11 +8,15 @@
         <div class="ml-auto collapse d-sm-inline-flex flex-sm-row-reverse">
             <partial name="_LoginPartial" />
             <ul class="navbar-nav flex-grow-1">
-                @foreach (var navMenuItem in Model)
+                @foreach (var p in Model)
                 {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-page="/@navMenuItem">@(navMenuItem == "Index" ? "Home" : navMenuItem)</a>
-                    </li>
+                    if (p.IsInNavMenu)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/@p.Title">@(p.Title == "Index" ? "Home" : p.Title)</a>
+                        </li>
+                    }
+
                 }
             </ul>
         </div>
